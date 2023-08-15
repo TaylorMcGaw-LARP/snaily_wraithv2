@@ -38,8 +38,7 @@ if pluginConfig.enabled then
         local platedata = {
             plateOrVin = plate
         }
-      
-        PerformHttpRequest(Config.apiURL .. "search/vehicle?includeMany=true", function(errorCode, result, resultHeaders)
+        performApiRequest(platedata,'search/vehicle?includeMany=true','is-from-dispatch', function(result)    
             debugLog("Performed lookup")
             if cam == "front" then
                 camCapitalized = "Front"
@@ -72,8 +71,7 @@ if pluginConfig.enabled then
                 }
                 TriggerClientEvent('ox_lib:notify', source, notify)
                 
-                
-        PerformHttpRequest(Config.apiURL .. "bolos?query="..plate, function(errorCode, result, resultHeaders)
+        performApiGETRequest('bolos?query='..plate,'is-from-dispatch', function(result)      
             if json.decode(result).totalCount == 1 then
                local bolos = json.decode(result).bolos[1]
         
@@ -89,11 +87,7 @@ if pluginConfig.enabled then
                 TriggerClientEvent('ox_lib:notify', source, notify)
             end
             
-        end, "GET",json.encode(platedata), {
-            ["Content-Type"] = "application/json",
-            ["snaily-cad-api-token"] = Config.apiKey
-    
-        })
+        end)
      
             else
                 local notify ={
@@ -106,11 +100,7 @@ if pluginConfig.enabled then
                 }
                 TriggerClientEvent('ox_lib:notify', source, notify)
             end
-        end, "POST",json.encode(platedata), {
-            ["Content-Type"] = "application/json",
-            ["snaily-cad-api-token"] = Config.apiKey
-    
-        })
+        end)
      
     end)
 
@@ -132,7 +122,7 @@ if pluginConfig.enabled then
             plateOrVin = plate
         }
       
-        PerformHttpRequest(Config.apiURL .. "search/vehicle?includeMany=true", function(errorCode, result, resultHeaders)
+        performApiRequest(platedata,'search/vehicle?includeMany=true','is-from-dispatch', function(result)    
             debugLog("Performed lookup")
             if cam == "front" then
                 camCapitalized = "Front"
@@ -166,7 +156,7 @@ if pluginConfig.enabled then
                 TriggerClientEvent('ox_lib:notify', source, notify)
                 
                 
-        PerformHttpRequest(Config.apiURL .. "bolos?query="..plate, function(errorCode, result, resultHeaders)
+                performApiGETRequest('bolos?query='..plate,'is-from-dispatch', function(result) 
             if json.decode(result).totalCount == 1 then
                local bolos = json.decode(result).bolos[1]
              
@@ -182,11 +172,7 @@ if pluginConfig.enabled then
                 TriggerClientEvent('ox_lib:notify', source, notify)
             end
             
-        end, "GET",json.encode(platedata), {
-            ["Content-Type"] = "application/json",
-            ["snaily-cad-api-token"] = Config.apiKey
-    
-        })
+        end)
      
             else
                 local notify ={
@@ -199,11 +185,7 @@ if pluginConfig.enabled then
                 }
                 TriggerClientEvent('ox_lib:notify', source, notify)
             end
-        end, "POST",json.encode(platedata), {
-            ["Content-Type"] = "application/json",
-            ["snaily-cad-api-token"] = Config.apiKey
-    
-        })
+        end)
      
     end)
 

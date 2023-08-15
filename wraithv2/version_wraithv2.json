@@ -1,6 +1,6 @@
 {
-    "version": "1.1",
-    "check_url": "https://raw.githubusercontent.com/TaylorMcGaw-LARP/snaily_wraithv2/wraithv2/main/version_wraithv2.json",
+    "version": "1.0",
+    "check_url": "https://raw.githubusercontent.com/TaylorMcGaw-LARP/snaily_wraithv2/main/wraithv2/version_wraithv2.json",
     "download_url": "https://github.com/TaylorMcGaw-LARP/snaily_wraithv2/",
     "configVersion": "1.0"
 }
