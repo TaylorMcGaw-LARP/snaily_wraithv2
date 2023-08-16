@@ -60,7 +60,7 @@ if pluginConfig.enabled then
                 local vin = reg.vinNumber
                 local color = reg.color
                 local registrationStatus = reg.registrationStatus.value
-                local owner = ("%s %s"):format(reg.citizen.name, reg.citizen.name)
+                local owner = ("%s %s"):format(reg.citizen.name, reg.citizen.surname)
                 local notify ={
                     id = 'platescan',
                     title = camCapitalized.." ALPR",
@@ -144,7 +144,7 @@ if pluginConfig.enabled then
                 local vin = reg.vinNumber
                 local color = reg.color
                 local registrationStatus = reg.registrationStatus.value
-                local owner = ("%s %s"):format(reg.citizen.name, reg.citizen.name)
+                local owner = ("%s %s"):format(reg.citizen.name, reg.citizen.surname)
                 local notify ={
                     id = 'platescan',
                     title = camCapitalized.." ALPR",
